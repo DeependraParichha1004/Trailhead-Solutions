@@ -19,11 +19,14 @@ Create a Lightning Component to display a single item for your packing list.
                     default="{Name:'Tent', Price__c:100, Quantity__c:1, Packed__c:true}"
                     />
         <p> The Item is <ui:outputText value ="{!v.item}"></ui:outputText></p>
+
         <ui:outputText value="{!v.item.Name}"/>
     <lightning:input type="toggle" label="Packed" name="togglevalue" checked="{!v.item.Packed__c}" />
     <lightning:formattedNumber value="{!v.item.Price__c}" style="currency" currencyCode="USD" currencyDisplayAs="symbol"/>
+
     <lightning:formattedNumber  value="{!v.item.Quantity__c}"/>
 </aura:component>
+
 ```
 
 ### Create New Custom Object
