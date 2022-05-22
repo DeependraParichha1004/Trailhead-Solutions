@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-![Image](https://github.com/DeependraParichha1004/Trailhead-Solutions/blob/main/Img/apex_trigger_1_problem.png)
+![Image](https://github.com/DeependraParichha1004/Trailhead-Solutions/blob/main/Img/apex_trigger_1_problem.PNG)
 
 ## Code
 ```
