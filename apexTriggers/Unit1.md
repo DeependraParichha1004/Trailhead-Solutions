@@ -1,36 +1,18 @@
-# [Lightning Components Basics :: Attributes and Expressions](https://trailhead.salesforce.com/modules/lex_dev_lc_basics/units/lex_dev_lc_basics_attributes_expressions)
+# [Get Started With Apex Triggers](https://trailhead.salesforce.com/en/content/learn/modules/apex_triggers/apex_triggers_intro)
 
-## Create a Packing List Item Component
+## Problem Statement
 
-Create a Lightning Component to display a single item for your packing list.
+![Image](https://github.com/DeependraParichha1004/Trailhead-Solutions/blob/main/Img/apex_trigger_1_problem.png)
 
-* Create a component called campingListItem.
-* Add an attribute named item of type Camping_Item__c that is required.
-* Display Name, Price, Quantity, Packed using an expression.
-* Display Price and Quantity using the appropriate formatted number fields.
-* Display Packed status using a toggle.
-
-### Lightning Component: campingListItem.cmp
-
+## Code
 ```
-<aura:component >
-    <aura:attribute name="item" type="Camping_Item__c" 
-                    required="true"
-                    default="{Name:'Tent', Price__c:100, Quantity__c:1, Packed__c:true}"
-                    />
-        <p> The Item is <ui:outputText value ="{!v.item}"></ui:outputText></p>
-
-        <ui:outputText value="{!v.item.Name}"/>
-    <lightning:input type="toggle" label="Packed" name="togglevalue" checked="{!v.item.Packed__c}" />
-    <lightning:formattedNumber value="{!v.item.Price__c}" style="currency" currencyCode="USD" currencyDisplayAs="symbol"/>
-
-    <lightning:formattedNumber  value="{!v.item.Quantity__c}"/>
-</aura:component>
-
+trigger AccountAddressTrigger on Account (before insert, before update) {
+    for(Account account: Trigger.New){
+        if(account.Match_Billing_Address__c==True){
+            account.ShippingPostalCode = account.BillingPostalCode;
+        }
+    }
+}
 ```
 
-### Create New Custom Object
 
-![Image](https://github.com/Mulodo-Salesforce-Training/trailhead-salesforce-challenge/blob/master/img/Attributes.png)
-
-> Source: https://salesforce.stackexchange.com/questions/191276/lightning-components-basics-attributes-and-expressions-trail
